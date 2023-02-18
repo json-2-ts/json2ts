@@ -9,13 +9,24 @@ export class JsonReader {
     constructor(data: any){
         this.data = data;
 
-        Object.keys(data).map((key: string) => {
-            this.plainObjects.push({
-                propertyName: key,
-                propertyType: typeof data[key] as PropertyType
-            })
-        });
+        this.getPlainObjects(this.data, 0);
 
         console.log(this.plainObjects);
+    }
+
+    getPlainObjects(data: any, level: number){
+        Object.keys(data).map((key: string) => {
+            const type = typeof data[key] as PropertyType;
+
+            if(type === PropertyType.OBJECT){
+                this.getPlainObjects(data[key], level+1);
+            }
+
+            this.plainObjects.push({
+                propertyName: key,
+                propertyType: type,
+                propertyLevel: level
+            })
+        });
     }
 }
