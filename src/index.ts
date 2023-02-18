@@ -12,3 +12,7 @@ const json2ts = (data: any): string => {
 
     return '';
 }
+
+json2ts(data);
+
+export {};
