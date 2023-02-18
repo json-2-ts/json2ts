@@ -1,18 +1,18 @@
+// import fs from 'fs';
+import { JsonReader } from './jsonReader';
+
 const data = {
     'a' : 1,
     'b' : 'abc',
     'c' : true,
-    'd' : {}
+    'd' : {
+        'd1' : 1,
+        'd2' : 'abc',
+        'd3' : true,
+        'd4' : {}
+    }
 }
 
-const json2ts = (data: any): string => {
-    Object.keys(data).map((key: string) => {
-        console.log(typeof data[key]) 
-    });
+new JsonReader(data);
 
-    return '';
-}
-
-json2ts(data);
-
-export {};
+// fs.writeFile('./output.ts', '',()=>{});
