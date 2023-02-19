@@ -4,4 +4,5 @@ export interface PlainObject {
     propertyName: string;
     propertyType: PropertyType;
     propertyLevel: number;
+    propertyRoot: string;
 }

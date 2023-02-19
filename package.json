@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "tsc && node ./dist/index.js"
+    "start": "del output.ts && tsc && node ./dist/index.js"
   },
   "repository": {
     "type": "git",
