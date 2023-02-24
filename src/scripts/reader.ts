@@ -7,40 +7,39 @@ export class JsonReader {
 
     plainObjects: PlainObject[] = [];
 
-    highestLevel = 0;
+    levels: string[] = [];
     
     constructor(data: any){
         this.data = data;
 
-        this.getPlainObjects(this.data, 0, 'RootObject');
+        this.getPlainObjects(this.data, Math.random().toString(), 'RootObject');
 
-        console.log(this.plainObjects);
-
-        let currentLevel = 0;
         let interfaces = '';
 
-        while(currentLevel < this.highestLevel){
-            interfaces += Writer.write(
-                this.plainObjects.filter(
-                    (plainObject: PlainObject) => plainObject.propertyLevel === currentLevel
-                ), 
-                'RootObject'
-            )
+        for(let n=0;n<this.levels.length;n++) {
+            const currentLevel = this.plainObjects.filter(
+                (plainObject: PlainObject) => plainObject.propertyLevel === this.levels[n]
+            );
 
-            currentLevel++;
+            interfaces += Writer.write(
+                currentLevel, 
+                currentLevel[0].propertyRoot
+            )
         }
 
         Writer.save(interfaces);
     }
 
-    getPlainObjects(data: any, level: number, root: string){
-        if(level > this.highestLevel) this.highestLevel = level;
+    getPlainObjects(data: any, level: string, root: string){
+        if(!this.levels.includes(level)){
+            this.levels.push(level)
+        }
 
         Object.keys(data).map((key: string) => {
             const type = typeof data[key] as PropertyType;
 
             if(type === PropertyType.OBJECT){
-                this.getPlainObjects(data[key], level+1, key);
+                this.getPlainObjects(data[key], Math.random().toString(), key);
             }
 
             this.plainObjects.push({
