@@ -26,7 +26,8 @@ const data = {
             'e44' : {}
         }
     },
-    'f' : []
+    'f' : [],
+    'g' : ['a', 'b', 'c']
 }
 
 new JsonReader(data);
