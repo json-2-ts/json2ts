@@ -30,5 +30,6 @@ export interface E4 {
 	e41 : number;
 	e42 : string;
 	e43 : boolean;
+	e44 : object;
 }
 

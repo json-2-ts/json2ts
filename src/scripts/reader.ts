@@ -38,7 +38,7 @@ export class JsonReader {
         Object.keys(data).map((key: string) => {
             let type: string = typeof data[key];
 
-            if(type === 'object'){
+            if(type === 'object' && Object.keys(data[key]).length > 0){
                 this.getPlainObjects(data[key], Math.random().toString(), key);
                 type = camelizeInterface(key);
             }
