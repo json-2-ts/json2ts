@@ -3,4 +3,5 @@ export interface PlainObject {
     propertyType: string;
     propertyLevel: string;
     propertyRoot: string;
+    isArray: boolean;
 }

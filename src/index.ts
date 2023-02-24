@@ -1,7 +1,4 @@
-// import fs from 'fs';
-
 import { JsonReader } from "./scripts/reader";
-
 
 const data = {
     'a' : 1,
@@ -15,7 +12,7 @@ const data = {
             'd41' : 1,
             'd42' : 'abc',
             'd43' : true,
-            // 'd44' : {}
+            'd44' : {}
         }
     },
     'e' : {
@@ -28,7 +25,8 @@ const data = {
             'e43' : true,
             'e44' : {}
         }
-    }
+    },
+    'f' : []
 }
 
 new JsonReader(data);
