@@ -1,5 +1,5 @@
-import { PropertyType } from "../enums/propertyType.enum";
 import { PlainObject } from "../interfaces/plainObject.interface";
+import { camelizeInterface } from "../utilities/camelize.utility";
 import { Writer } from "./writer";
 
 export class JsonReader {
@@ -23,23 +23,24 @@ export class JsonReader {
 
             interfaces += Writer.write(
                 currentLevel, 
-                currentLevel[0].propertyRoot
+                camelizeInterface(currentLevel[0].propertyRoot)
             )
         }
 
         Writer.save(interfaces);
     }
 
-    getPlainObjects(data: any, level: string, root: string){
+    getPlainObjects(data: any, level: string, root: string): void {
         if(!this.levels.includes(level)){
             this.levels.push(level)
         }
 
         Object.keys(data).map((key: string) => {
-            const type = typeof data[key] as PropertyType;
+            let type: string = typeof data[key];
 
-            if(type === PropertyType.OBJECT){
+            if(type === 'object'){
                 this.getPlainObjects(data[key], Math.random().toString(), key);
+                type = camelizeInterface(key);
             }
 
             this.plainObjects.push({

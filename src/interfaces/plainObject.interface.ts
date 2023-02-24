@@ -1,8 +1,6 @@
-import { PropertyType } from "../enums/propertyType.enum";
-
 export interface PlainObject {
     propertyName: string;
-    propertyType: PropertyType;
+    propertyType: string;
     propertyLevel: string;
     propertyRoot: string;
 }

@@ -2,31 +2,31 @@ export interface RootObject {
 	a : number;
 	b : string;
 	c : boolean;
-	d : object;
-	e : object;
+	d : D;
+	e : E;
 }
 
-export interface d {
+export interface D {
 	d1 : number;
 	d2 : string;
 	d3 : boolean;
-	d4 : object;
+	d4 : D4;
 }
 
-export interface d4 {
+export interface D4 {
 	d41 : number;
 	d42 : string;
 	d43 : boolean;
 }
 
-export interface e {
+export interface E {
 	e1 : number;
 	e2 : string;
 	e3 : boolean;
-	e4 : object;
+	e4 : E4;
 }
 
-export interface e4 {
+export interface E4 {
 	e41 : number;
 	e42 : string;
 	e43 : boolean;
