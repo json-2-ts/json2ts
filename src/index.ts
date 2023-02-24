@@ -27,7 +27,17 @@ const data = {
         }
     },
     'f' : [],
-    'g' : ['a', 'b', 'c']
+    'g' : ['a', 'b', 'c'],
+    'h' : [
+        {
+            'name' : 'x',
+            'lastname' : 'y'
+        },
+        {
+            'name' : 'x',
+            'lastname' : 'y'
+        },
+    ]
 }
 
 new JsonReader(data);

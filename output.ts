@@ -6,6 +6,7 @@ export interface RootObject {
 	e: E;
 	f: any[];
 	g: string[];
+	h: H[];
 }
 
 export interface D {
@@ -34,5 +35,10 @@ export interface E4 {
 	e42: string;
 	e43: boolean;
 	e44: object;
+}
+
+export interface H {
+	name: string;
+	lastname: string;
 }
 
