@@ -56,7 +56,7 @@ export interface Friends {
 	city: City;
 }
 
-export interface City {
+export interface City2 {
 	code: string;
 	name: string;
 }
