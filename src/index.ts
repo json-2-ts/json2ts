@@ -37,7 +37,8 @@ const data = {
             'name' : 'x',
             'lastname' : 'y'
         },
-    ]
+    ],
+    'i' : null
 }
 
 new JsonReader(data);

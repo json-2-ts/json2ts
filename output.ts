@@ -7,6 +7,7 @@ export interface RootObject {
 	f: any[];
 	g: string[];
 	h: H[];
+	i: any;
 }
 
 export interface D {

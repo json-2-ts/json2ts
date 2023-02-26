@@ -39,7 +39,10 @@ export class JsonReader {
             let type: string = typeof data[key];
             let isArray = Array.isArray(data[key]);
 
-            if(isArray){
+            if(data[key] === null){
+                type = 'any';
+            }
+            else if(isArray){
                 isArray = true;
 
                 if(data[key].length === 0){
