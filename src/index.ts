@@ -31,11 +31,39 @@ const data = {
     'h' : [
         {
             'name' : 'x',
-            'lastname' : 'y'
+            'lastname' : 'y',
+            'city' : {
+                'code' : '20900',
+                'name' : 'Monza'
+            },
+            'friends' : [
+                {
+                    'name' : 'x',
+                    'lastname' : 'y',
+                    'city' : {
+                        'code' : '20900',
+                        'name' : 'Monza'
+                    }
+                }
+            ]
         },
         {
             'name' : 'x',
-            'lastname' : 'y'
+            'lastname' : 'y',
+            'city' : {
+                'code' : '20900',
+                'name' : 'Monza'
+            },
+            'friends' : [
+                {
+                    'name' : 'x',
+                    'lastname' : 'y',
+                    'city' : {
+                        'code' : '20900',
+                        'name' : 'Monza'
+                    }
+                }
+            ]
         },
     ],
     'i' : null

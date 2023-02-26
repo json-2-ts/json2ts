@@ -41,5 +41,23 @@ export interface E4 {
 export interface H {
 	name: string;
 	lastname: string;
+	city: City;
+	friends: Friends[];
+}
+
+export interface City {
+	code: string;
+	name: string;
+}
+
+export interface Friends {
+	name: string;
+	lastname: string;
+	city: City;
+}
+
+export interface City {
+	code: string;
+	name: string;
 }
 
