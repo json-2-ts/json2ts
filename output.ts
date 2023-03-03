@@ -53,7 +53,7 @@ export interface City {
 export interface Friends {
 	name: string;
 	lastname: string;
-	city: City;
+	city: City2;
 }
 
 export interface City2 {

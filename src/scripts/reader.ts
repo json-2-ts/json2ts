@@ -1,8 +1,10 @@
 import { PlainInterface } from "../interfaces/plainInterface.interface";
 import { PlainProperty } from "../interfaces/plainProperty.interface";
 import { camelizeInterface } from "../utilities/camelize.utility";
-import { updatePlainInterfaces } from "../utilities/plainInterface.utility";
+import { updatePlainInterfaces } from "../utilities/updatePlainInterface.utility";
+import { randomId } from "../utilities/randomId.utility";
 import { Writer } from "./writer";
+import { recalculations } from "../state/recalculate.state";
 
 export class JsonReader {
     plainObjects: PlainProperty[] = [];
@@ -12,7 +14,7 @@ export class JsonReader {
     levels: string[] = [];
     
     constructor(data: any){
-        this.getPlainObjects(data, Math.random().toString(), 'RootObject');
+        this.getPlainObjects(data, randomId(), 'RootObject');
 
         let interfaces = '';
 
@@ -20,7 +22,8 @@ export class JsonReader {
             interfaces += Writer.write(this.plainInterfaces[n]);
         }
 
-        console.log(JSON.stringify(this.plainInterfaces));
+        // console.log(JSON.stringify(this.plainInterfaces));
+        console.log(recalculations);
 
         Writer.save(interfaces);
     }
@@ -33,7 +36,7 @@ export class JsonReader {
         Object.keys(data).map((key: string) => {
             let type: string = typeof data[key];
             let isArray = Array.isArray(data[key]);
-            const propertyId = Math.random().toString();
+            const propertyId = randomId();
 
             if(data[key] === null){
                 type = 'any';
@@ -50,13 +53,13 @@ export class JsonReader {
 
                 if(type === 'object')
                 {
-                    this.getPlainObjects(data[key][0], Math.random().toString(), key, level, propertyId);
+                    this.getPlainObjects(data[key][0], randomId(), key, level, propertyId);
                     type = camelizeInterface(key);
                 }
             }
             else if(type === 'object' && Object.keys(data[key]).length > 0)
             {
-                this.getPlainObjects(data[key], Math.random().toString(), key, level, propertyId);
+                this.getPlainObjects(data[key], randomId(), key, level, propertyId);
                 type = camelizeInterface(key);
             }
 
