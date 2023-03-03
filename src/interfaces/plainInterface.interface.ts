@@ -6,4 +6,6 @@ export interface PlainInterface {
     interfaceFullName: string;
     interfaceProperties: PlainProperty[];
     interfaceLevel: string;
+    interfacePropertyId: string;
+    interfacePreviousLevel?: string;
 }

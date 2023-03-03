@@ -25,7 +25,7 @@ export class JsonReader {
         Writer.save(interfaces);
     }
 
-    getPlainObjects(data: any, level: string, root: string, previousLevel?: string): void {
+    getPlainObjects(data: any, level: string, root: string, previousLevel?: string, interfacePropertyId?: string): void {
         if(!this.levels.includes(level)){
             this.levels.push(level)
         }
@@ -33,6 +33,7 @@ export class JsonReader {
         Object.keys(data).map((key: string) => {
             let type: string = typeof data[key];
             let isArray = Array.isArray(data[key]);
+            const propertyId = Math.random().toString();
 
             if(data[key] === null){
                 type = 'any';
@@ -49,13 +50,13 @@ export class JsonReader {
 
                 if(type === 'object')
                 {
-                    this.getPlainObjects(data[key][0], Math.random().toString(), key, level);
+                    this.getPlainObjects(data[key][0], Math.random().toString(), key, level, propertyId);
                     type = camelizeInterface(key);
                 }
             }
             else if(type === 'object' && Object.keys(data[key]).length > 0)
             {
-                this.getPlainObjects(data[key], Math.random().toString(), key, level);
+                this.getPlainObjects(data[key], Math.random().toString(), key, level, propertyId);
                 type = camelizeInterface(key);
             }
 
@@ -63,13 +64,14 @@ export class JsonReader {
                 {
                     propertyName: key,
                     propertyType: type,
-                    propertyLevel: level,
-                    propertyPreviousLevel: previousLevel,
+                    propertyId,
                     isArray
                 },
                 this.plainInterfaces,
                 level,
-                root
+                root,
+                interfacePropertyId!,
+                previousLevel,
             )
         });
     }

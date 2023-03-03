@@ -1,7 +1,6 @@
 export interface PlainProperty {
+    propertyId: string;
     propertyName: string;
     propertyType: string;
-    propertyLevel: string;
-    propertyPreviousLevel?: string;
     isArray: boolean;
 }
