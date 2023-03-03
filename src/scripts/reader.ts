@@ -5,8 +5,6 @@ import { createPlainInterface } from "../utilities/plainInterface.utility";
 import { Writer } from "./writer";
 
 export class JsonReader {
-    data: any;
-
     plainObjects: PlainProperty[] = [];
 
     plainInterfaces: PlainInterface[] = [];
@@ -14,9 +12,9 @@ export class JsonReader {
     levels: string[] = [];
     
     constructor(data: any){
-        this.data = data;
+        this.getPlainObjects(data, Math.random().toString(), 'RootObject');
 
-        this.getPlainObjects(this.data, Math.random().toString(), 'RootObject');
+        let interfaces = '';
 
         for(let n=0;n<this.levels.length;n++) {
             const currentLevel = this.plainObjects.filter(
@@ -24,13 +22,10 @@ export class JsonReader {
             );
                 
             this.plainInterfaces.push(createPlainInterface(currentLevel, this.plainInterfaces));
-        }
-            
-        let interfaces = '';
-
-        for(let n=0;n<this.plainInterfaces.length;n++){
             interfaces += Writer.write(this.plainInterfaces[n]);
         }
+
+        console.log(JSON.stringify(this.plainInterfaces));
 
         Writer.save(interfaces);
     }
