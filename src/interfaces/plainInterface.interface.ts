@@ -5,4 +5,5 @@ export interface PlainInterface {
     interfaceIndex: number;
     interfaceFullName: string;
     interfaceProperties: PlainProperty[];
+    interfaceLevel: string;
 }

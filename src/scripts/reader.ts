@@ -1,7 +1,7 @@
 import { PlainInterface } from "../interfaces/plainInterface.interface";
 import { PlainProperty } from "../interfaces/plainProperty.interface";
 import { camelizeInterface } from "../utilities/camelize.utility";
-import { createPlainInterface } from "../utilities/plainInterface.utility";
+import { updatePlainInterfaces } from "../utilities/plainInterface.utility";
 import { Writer } from "./writer";
 
 export class JsonReader {
@@ -17,11 +17,6 @@ export class JsonReader {
         let interfaces = '';
 
         for(let n=0;n<this.levels.length;n++) {
-            const currentLevel = this.plainObjects.filter(
-                (plainObject: PlainProperty) => plainObject.propertyLevel === this.levels[n]
-            );
-                
-            this.plainInterfaces.push(createPlainInterface(currentLevel, this.plainInterfaces));
             interfaces += Writer.write(this.plainInterfaces[n]);
         }
 
@@ -64,14 +59,18 @@ export class JsonReader {
                 type = camelizeInterface(key);
             }
 
-            this.plainObjects.push({
-                propertyName: key,
-                propertyType: type,
-                propertyLevel: level,
-                propertyRoot: root,
-                propertyPreviousLevel: previousLevel,
-                isArray
-            })
+            this.plainInterfaces = updatePlainInterfaces(
+                {
+                    propertyName: key,
+                    propertyType: type,
+                    propertyLevel: level,
+                    propertyPreviousLevel: previousLevel,
+                    isArray
+                },
+                this.plainInterfaces,
+                level,
+                root
+            )
         });
     }
 }
