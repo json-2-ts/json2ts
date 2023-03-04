@@ -4,7 +4,6 @@ import { camelizeInterface } from "../utilities/camelize.utility";
 import { updatePlainInterfaces } from "../utilities/updatePlainInterface.utility";
 import { randomId } from "../utilities/randomId.utility";
 import { Writer } from "./writer";
-import { recalculations } from "../state/recalculate.state";
 
 export class JsonReader {
     plainObjects: PlainProperty[] = [];
@@ -21,9 +20,6 @@ export class JsonReader {
         for(let n=0;n<this.levels.length;n++) {
             interfaces += Writer.write(this.plainInterfaces[n]);
         }
-
-        // console.log(JSON.stringify(this.plainInterfaces));
-        console.log(recalculations);
 
         Writer.save(interfaces);
     }

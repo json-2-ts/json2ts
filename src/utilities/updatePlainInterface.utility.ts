@@ -26,8 +26,6 @@ export const updatePlainInterfaces = (
     const interfaceIndex = duplicates.length + 1;
     const interfaceFullName = interfaceName + (interfaceIndex === 1 ? '' : interfaceIndex);
 
-    console.log(interfacePropertyId)
-
     if(plainInterfaces.filter(
         (plainInterface: PlainInterface) => plainInterface.interfaceLevel === interfaceLevel).length === 0
     ) {

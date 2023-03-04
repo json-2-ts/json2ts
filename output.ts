@@ -8,6 +8,7 @@ export interface RootObject {
 	g: string[];
 	h: H[];
 	i: any;
+	l: L;
 }
 
 export interface D {
@@ -59,5 +60,27 @@ export interface Friends {
 export interface City2 {
 	code: string;
 	name: string;
+}
+
+export interface Pets {
+	name: string;
+	age: number;
+	friends: Friends2[];
+}
+
+export interface Friends2 {
+	name: string;
+	age: number;
+	friends: Friends3[];
+}
+
+export interface Friends3 {
+	name: string;
+	age: number;
+	friends: any[];
+}
+
+export interface L {
+	pets: Pets[];
 }
 

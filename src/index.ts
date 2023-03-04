@@ -66,7 +66,28 @@ const data = {
             ]
         },
     ],
-    'i' : null
+    'i' : null,
+    'l': {
+        'pets' : [
+            {
+                'name' : 'dog',
+                'age' : 2,
+                'friends' : [
+                    {
+                        'name' : 'cat',
+                        'age' : 3,
+                        'friends' : [
+                            {
+                                'name' : 'dog',
+                                'age' : 1,
+                                'friends': []
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
 }
 
 new JsonReader(data);
