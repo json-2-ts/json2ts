@@ -90,4 +90,4 @@ const data = {
     }
 }
 
-new JsonReader(data);
+new JsonReader(data, './', 'types.ts');

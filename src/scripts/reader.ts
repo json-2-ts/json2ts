@@ -12,7 +12,7 @@ export class JsonReader {
 
     levels: string[] = [];
     
-    constructor(data: any){
+    constructor(data: any, savePath: string, fileName: string){
         this.getPlainObjects(data, randomId(), 'RootObject');
 
         let interfaces = '';
@@ -21,7 +21,7 @@ export class JsonReader {
             interfaces += Writer.write(this.plainInterfaces[n]);
         }
 
-        Writer.save(interfaces);
+        Writer.save(interfaces, savePath, fileName);
     }
 
     getPlainObjects = (data: any, level: string, root: string, previousLevel?: string, interfacePropertyId?: string): void => {
