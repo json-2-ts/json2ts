@@ -3,13 +3,14 @@
   "version": "1.0.4",
   "description": "Convert json to typescript interfaces",
   "main": "./dist/index.js",
+  "type": "module",
   "keywords": [
     "json",
     "typings",
     "json2ts"
   ],
   "scripts": {
-    "build": "node build.js",
+    "build": "rimraf ./dist && tsc",
     "test" : "npm run build && node ./dist/test.js"
   },
   "repository": {
