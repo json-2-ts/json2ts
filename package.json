@@ -1,5 +1,5 @@
 {
-  "name": "json2ts",
+  "name": "@dellarosamarco/json-2-ts",
   "version": "1.0.0",
   "description": "Convert json to typescript interfaces",
   "main": "./dist/index.js",
