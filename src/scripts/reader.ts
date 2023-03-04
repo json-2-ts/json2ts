@@ -3,7 +3,7 @@ import { PlainProperty } from "../interfaces/plainProperty.interface";
 import { camelizeInterface } from "../utilities/camelize.utility";
 import { updatePlainInterfaces } from "../utilities/updatePlainInterface.utility";
 import { randomId } from "../utilities/randomId.utility";
-import { Writer } from "./writer";
+import Writer from "./writer";
 
 export class JsonReader {
     plainObjects: PlainProperty[] = [];
@@ -24,7 +24,7 @@ export class JsonReader {
         Writer.save(interfaces);
     }
 
-    getPlainObjects(data: any, level: string, root: string, previousLevel?: string, interfacePropertyId?: string): void {
+    getPlainObjects = (data: any, level: string, root: string, previousLevel?: string, interfacePropertyId?: string): void => {
         if(!this.levels.includes(level)){
             this.levels.push(level)
         }
@@ -75,3 +75,5 @@ export class JsonReader {
         });
     }
 }
+
+export default JsonReader;

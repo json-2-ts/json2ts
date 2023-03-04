@@ -15,3 +15,5 @@ export class Writer {
         fs.writeFile('./output.ts', data,()=>{});
     }
 }
+
+export default Writer;

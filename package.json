@@ -2,9 +2,14 @@
   "name": "json2ts",
   "version": "1.0.0",
   "description": "Convert json to typescript interfaces",
-  "keywords": ["json", "typings", "json2ts"],
+  "main": "./dist/index.js",
+  "keywords": [
+    "json",
+    "typings",
+    "json2ts"
+  ],
   "scripts": {
-    "start": "del output.ts && tsc && node ./dist/index.js"
+    "start": "node build.js"
   },
   "repository": {
     "type": "git",
@@ -18,6 +23,7 @@
   "homepage": "https://github.com/dellarosamarco/json2ts#readme",
   "dependencies": {
     "fs": "^0.0.1-security",
+    "rimraf": "^4.3.0",
     "typescript": "^4.9.5"
   },
   "devDependencies": {
