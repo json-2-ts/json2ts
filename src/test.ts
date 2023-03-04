@@ -90,4 +90,5 @@ const data = {
     }
 }
 
-new JsonReader(data, './', 'types.ts');
+const interfaces = JsonReader.convert(data);
+console.log(interfaces);

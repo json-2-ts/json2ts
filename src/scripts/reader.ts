@@ -1,18 +1,15 @@
 import { PlainInterface } from "../interfaces/plainInterface.interface";
-import { PlainProperty } from "../interfaces/plainProperty.interface";
 import { camelizeInterface } from "../utilities/camelize.utility";
 import { updatePlainInterfaces } from "../utilities/updatePlainInterface.utility";
 import { randomId } from "../utilities/randomId.utility";
 import Writer from "./writer";
 
 export class JsonReader {
-    plainObjects: PlainProperty[] = [];
+    private static plainInterfaces: PlainInterface[] = [];
 
-    plainInterfaces: PlainInterface[] = [];
+    private static levels: string[] = [];
 
-    levels: string[] = [];
-    
-    constructor(data: any, savePath: string, fileName: string){
+    static convert(data: any): string {
         this.getPlainObjects(data, randomId(), 'RootObject');
 
         let interfaces = '';
@@ -21,10 +18,10 @@ export class JsonReader {
             interfaces += Writer.write(this.plainInterfaces[n]);
         }
 
-        Writer.save(interfaces, savePath, fileName);
+        return interfaces;
     }
 
-    getPlainObjects = (data: any, level: string, root: string, previousLevel?: string, interfacePropertyId?: string): void => {
+    private static getPlainObjects = (data: any, level: string, root: string, previousLevel?: string, interfacePropertyId?: string): void => {
         if(!this.levels.includes(level)){
             this.levels.push(level)
         }
