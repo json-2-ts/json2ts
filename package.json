@@ -1,6 +1,6 @@
 {
   "name": "@dellarosamarco/json-2-ts",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Convert json to typescript interfaces",
   "main": "./dist/index.js",
   "keywords": [
