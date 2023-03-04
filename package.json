@@ -1,6 +1,6 @@
 {
   "name": "@dellarosamarco/json-2-ts",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Convert json to typescript interfaces",
   "main": "./dist/index.js",
   "keywords": [
@@ -9,7 +9,7 @@
     "json2ts"
   ],
   "scripts": {
-    "start": "node build.js"
+    "build": "node build.js"
   },
   "repository": {
     "type": "git",
