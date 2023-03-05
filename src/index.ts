@@ -1,3 +1,1 @@
-import JsonReader from "./scripts/reader";
-
-export { JsonReader };
+export * from "./scripts/reader";
