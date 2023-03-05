@@ -10,6 +10,9 @@ export class JsonReader {
     private static levels: string[] = [];
 
     static convert(data: any): string {
+        this.plainInterfaces = [];
+        this.levels = [];
+        
         this.getPlainObjects(data, randomId(), 'RootObject');
 
         let interfaces = '';
