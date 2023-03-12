@@ -1,6 +1,6 @@
 {
   "name": "@dellarosamarco/json-2-ts",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Convert json to typescript interfaces",
   "main": "./dist/index.js",
   "keywords": [
@@ -23,7 +23,6 @@
   },
   "homepage": "https://github.com/dellarosamarco/json2ts#readme",
   "dependencies": {
-    "fs": "^0.0.1-security",
     "rimraf": "^4.3.0",
     "typescript": "^4.9.5"
   },
