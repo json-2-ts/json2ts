@@ -1,4 +1,4 @@
-import { JsonReader } from "./scripts/reader";
+import JsonReader from "./scripts/reader";
 
 const data = {
     'a' : 1,
