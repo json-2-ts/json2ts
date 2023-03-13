@@ -4,7 +4,7 @@ import { updatePlainInterfaces } from "../utilities/updatePlainInterface.utility
 import { randomId } from "../utilities/randomId.utility";
 import Writer from "./writer";
 
-export class JsonReader {
+class JsonReader {
     private static plainInterfaces: PlainInterface[] = [];
 
     private static levels: string[] = [];
