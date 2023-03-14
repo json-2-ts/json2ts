@@ -6,7 +6,7 @@ npm i --save @dellarosamarco/json-2-ts
 ## Package.json
 ```
 "devDependencies": {
-    "@dellarosamarco/json-2-ts": "^1.0.9"
+    "@dellarosamarco/json-2-ts": "^1.1.4"
 }
 ```
 
