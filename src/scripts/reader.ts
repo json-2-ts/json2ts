@@ -10,6 +10,10 @@ export class JsonReader {
     private static levels: string[] = [];
 
     static convert(data: any): string {
+        if(Array.isArray(data) && data.length > 0) {
+            data = data[0];
+        }
+
         this.plainInterfaces = [];
         this.levels = [];
         
